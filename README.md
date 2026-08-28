@@ -18,10 +18,6 @@ A dynamic To-Do List web application built with Python and Django, developed usi
     ```bash
     python -m venv .venv
 
-**Windows (PowerShell/CMD):**
-    ```bash
-    .venv\Scripts\activate
-
 3. **Install dependencies:**
     ```bash
     pip install -r requirements.txt
