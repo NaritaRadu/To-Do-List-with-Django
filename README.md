@@ -14,31 +14,33 @@ A dynamic To-Do List web application built with Python and Django, developed usi
    ```bash
    git clone <LINK-REPO-GITHUB>
    cd Django-TDD
-2. Create and activate a virtual environment:
+2. **Create and activate a virtual environment:**
+    ```bash
+    python -m venv .venv
 
-python -m venv .venv
-# Windows (PowerShell/CMD):
-.venv\Scripts\activate
+Windows (PowerShell/CMD):
+    ```bash
+    .venv\Scripts\activate
 
-3. Install dependencies:
+3. **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
 
-pip install -r requirements.txt
+4. **Run database migrations:**
+    ```bash
+    python manage.py migrate
 
-4. Run database migrations:
-
-python manage.py migrate
-
-5. Running the Tests
+5. **Running the Tests:**
 To run the functional tests with Selenium:
-
-python functional_tests.py
+    ```bash
+    python functional_tests.py
 
 To run Django unit tests:
+    ```bash
+    python manage.py test
 
-python manage.py test
-
-6. Running the App Locally
-
-python manage.py runserver
+6. **Running the App Locally**
+    ```bash
+    python manage.py runserver
 
 7. Open http://localhost:8000 in your browser.
