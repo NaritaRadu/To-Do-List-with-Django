@@ -18,7 +18,7 @@ A dynamic To-Do List web application built with Python and Django, developed usi
     ```bash
     python -m venv .venv
 
-Windows (PowerShell/CMD):
+**Windows (PowerShell/CMD):**
     ```bash
     .venv\Scripts\activate
 
@@ -35,7 +35,7 @@ To run the functional tests with Selenium:
     ```bash
     python functional_tests.py
 
-To run Django unit tests:
+**To run Django unit tests:**
     ```bash
     python manage.py test
 
