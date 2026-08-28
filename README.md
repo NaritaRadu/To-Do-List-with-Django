@@ -35,12 +35,12 @@ To run the functional tests with Selenium:
     ```bash
     python functional_tests.py
 
-**To run Django unit tests:**
+6. **To run Django unit tests:**
     ```bash
     python manage.py test
 
-6. **Running the App Locally**
+7. **Running the App Locally**
     ```bash
     python manage.py runserver
 
-7. Open http://localhost:8000 in your browser.
+8. Open http://localhost:8000 in your browser.
