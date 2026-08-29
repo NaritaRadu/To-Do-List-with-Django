@@ -39,7 +39,7 @@ class ListViewTest(TestCase):
         response = self.client.get(f"/lists/{mylist.id}/")
         self.assertContains(
             response,
-            f'<form method="POST" action="/lists/{mylist.id}/add_item">',
+            f'<form method="POST" action="/lists/{mylist.id}/add_item/">',
         )
         self.assertContains(response,'<input name="item_text"')
     
@@ -91,7 +91,7 @@ class NewItemTest(TestCase):
         correct_list = List.objects.create()
 
         self.client.post(
-            f"/lists/{correct_list.id}/add_item",
+            f"/lists/{correct_list.id}/add_item/",
             data={"item_text": "A new item for an existing list"},
         )
 
@@ -105,7 +105,7 @@ class NewItemTest(TestCase):
         correct_list = List.objects.create()
 
         response = self.client.post(
-            f"/lists/{correct_list.id}/add_item",
+            f"/lists/{correct_list.id}/add_item/",
             data={"item_text": "A new item for an existing list"},
         )
 
