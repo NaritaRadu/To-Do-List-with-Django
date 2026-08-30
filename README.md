@@ -29,7 +29,7 @@ A dynamic To-Do List web application built with Python and Django, developed usi
 5. **Running the Tests:**
 To run the functional tests with Selenium:
     ```bash
-    python functional_tests.py
+    python manage.py test functional_tests
 
 6. **To run Django unit tests:**
     ```bash
