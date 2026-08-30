@@ -9,3 +9,4 @@ posts.json
 .env
 chromedriver.exe
 chromedriver
+/static
