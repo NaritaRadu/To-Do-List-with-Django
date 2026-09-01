@@ -10,8 +10,16 @@ COPY src /src
 
 WORKDIR /src
 
+RUN python manage.py collectstatic --noinput
+
 ENV DJANGO_DEBUG_FALSE=1
 
-RUN python manage.py collectstatic --noinput
+RUN adduser --uid 1234 nonroot  
+
+RUN chown -R nonroot:nonroot /src
+
+USER nonroot
+
+
 
 CMD ["gunicorn", "--bind", ":8888", "superlists.wsgi:application"]
