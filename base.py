@@ -6,17 +6,17 @@ import time
 import unittest
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 import os
+from unittest import skip
 MAX_WAIT = 10
-
-class NewVisitorTest(StaticLiveServerTestCase):
+class FunctionalTest(StaticLiveServerTestCase):
     def setUp(self):
         self.browser=webdriver.Chrome()
         if test_server := os.environ.get("TEST_SERVER"):
             self.live_server_url="http://"+test_server
-    
+        
     def tearDown(self):
         self.browser.quit()
-    
+        
     def wait_for_row_in_list_table(self, row_text):
         start_time=time.time()
         while True:
@@ -29,7 +29,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
                 if time.time()-start_time>MAX_WAIT:
                     raise
                 time.sleep(0.5)
-        
+class NewVisitorTest(FunctionalTest):
     def test_can_start_a_todo_list(self):
         # Stan has heard about a cool new online to-do app.
         # He goes to check out its homepage
@@ -62,7 +62,6 @@ class NewVisitorTest(StaticLiveServerTestCase):
         
         #self.fail("Finish the test!")
     
-
     def test_multiple_users_can_start_lists_at_different_urls(self):
         self.browser.get(self.live_server_url)
         inputbox=self.browser.find_element(By.ID,"id_new_item")
@@ -94,6 +93,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         self.assertNotIn("Buy peacock feathers", page_text)
         self.assertIn("Buy milk", page_text)
     
+class LayoutAndStylingTest(FunctionalTest):
     def test_layout_and_styling(self):
         self.browser.get(self.live_server_url)
         
@@ -111,4 +111,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         512,
         delta=10,
         )
-        
+class ItemValidationTest(FunctionalTest):
+    @skip
+    def test_cannot_add_empty_list_items(self):
+        self.fail("write me!")
