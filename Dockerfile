@@ -10,4 +10,8 @@ COPY src /src
 
 WORKDIR /src
 
+ENV DJANGO_DEBUG_FALSE=1
+
+RUN python manage.py collectstatic --noinput
+
 CMD ["gunicorn", "--bind", ":8888", "superlists.wsgi:application"]
