@@ -3,6 +3,7 @@ from django.test import TestCase
 from lists.models import Item,List
 from django.db.utils import IntegrityError
 from django.core.exceptions import ValidationError
+
 # Create your tests here.
 
 
@@ -46,3 +47,7 @@ class ListAndItemModelsTest(TestCase):
         item=Item(list=mylist,text="")
         with self.assertRaises(ValidationError):
             item.full_clean()
+    
+    def test_get_absolute_url(self):
+        mylist = List.objects.create()
+        self.assertEqual(mylist.get_absolute_url(), f"/lists/{mylist.id}/")
